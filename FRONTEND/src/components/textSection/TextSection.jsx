@@ -3,7 +3,9 @@ import InputChecker from "./InputChecker";
 import TextStream from "./TextStream";
 
 function TextSection(props) {
-  const [textStream, setTextStream] = useState("loading.......  ");
+  const [textStream, setTextStream] = useState(
+    "loading.......  the backend server is hosted on render (free tier) so it will take around 50 seconds to spin up for the first time. Should be smooth sailing after that. (happens after 15 minutes of inactivity in in render) "
+  );
   const randDigit = (Math.random() * 5).toFixed();
   const API = "https://type0-mca-011-mca-2022-15.onrender.com/para";
   async function getParagraph() {
