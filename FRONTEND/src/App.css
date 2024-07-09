@@ -1,0 +1,205 @@
+:root {
+  padding: 0rem;
+  margin: 0rem;
+  --visitedLetter: grey;
+  --unvisitedLetter: white;
+  --wrongLetter: grey;
+  --backgroundColor: black;
+}
+body {
+  width: 100vw;
+  /* padding-left: 1rem; */
+  overflow: hidden;
+
+  background-color: var(--backgroundColor);
+  color: var(--unvisitedLetter);
+  font-family: monospace;
+  font-size: 1.6rem;
+  /* display: flex;
+    flex-wrap: wrap; */
+}
+@keyframes blink {
+  50% {
+    text-decoration-color: var(--backgroundColor);
+  }
+}
+
+.textField {
+  width: 96vw;
+}
+.textField,
+.word {
+  display: flex;
+  flex-wrap: wrap;
+}
+.letter {
+  /* animation: 0.1s blink step-start infinite; */
+  display: inline-block;
+  min-width: 0.7rem;
+  white-space: pre;
+}
+.inputOverlay {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+}
+footer {
+  color: var(--unvisitedLetter);
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 3rem;
+  background-color: var(--backgroundColor);
+  z-index: 20;
+}
+.footerPadding {
+  position: fixed;
+  left: 0;
+  bottom: 3rem;
+  width: 100vw;
+  height: 10rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    var(--backgroundColor)
+  );
+}
+
+.bottomOptionsMenu {
+  position: absolute;
+  height: 10rem;
+  width: 3rem;
+  bottom: 4rem;
+  padding: 0.5rem;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  /* background-color: black; */
+  justify-content: space-between;
+  z-index: 10;
+}
+.themes {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+}
+
+.debug {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  /* background-color: yellow; */
+}
+
+.historyIco * {
+  fill: var(--unvisitedLetter);
+}
+
+.leaderboardIco * {
+  fill: var(--unvisitedLetter);
+}
+.settingsIco * {
+  stroke: var(--unvisitedLetter);
+}
+
+.settingsIco:hover {
+  rotate: 180deg;
+  transition: 500ms;
+}
+.leaderboardIco:hover,
+.historyIco:hover {
+  translate: -0.2rem -0.2rem;
+  transition: 100ms;
+}
+.leaderBoardIco:not(:hover),
+.themes:not(:hover) {
+  transition: 250ms;
+}
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 87, 87, 0.259);
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(2px);
+  z-index: 15;
+}
+.modal {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  position: absolute;
+  background-color: black;
+  color: white;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 2rem;
+  z-index: 20;
+}
+.modalLabel {
+  font-size: 2rem;
+}
+.colorInput {
+  width: 2rem;
+  background-color: black;
+  border: 1px dotted white;
+  height: 2rem;
+}
+.options {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.rankItem {
+  width: inherit;
+  display: flex;
+  justify-content: space-around;
+}
+.rankItem label {
+  font-style: italic;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+.rankItem div,
+.rankItem label {
+  width: 5rem;
+}
+.rankItem div {
+  font-family: "Courier New", Courier, monospace;
+}
+.themePresetSelectBar {
+  width: inherit;
+  display: flex;
+  justify-content: space-evenly;
+}
+.themeResetButton {
+  font-family: monospace;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
+.themeResetButton:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+}
+/* .themePresetSelect{
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 5rem;
+    color:blue;
+    background-color: red;
+    border: 1px solid white;
+} */
