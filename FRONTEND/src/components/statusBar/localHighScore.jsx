@@ -53,7 +53,10 @@ function LocalHighScore(props) {
 
     return (
         <>
-            <div title="type atleast 700 letters to register a highscore">{`highScore:${highScore}, ${highestAccu}%`}</div>
+            <div
+                style={{ height: "fit-content" }}
+                title="type atleast 700 letters to register a highscore"
+            >{`highScore:${highScore}, ${highestAccu}%`}</div>
             {getUser && (
                 <UserName
                     previousLeaderboard={globalLeaderBoard}
