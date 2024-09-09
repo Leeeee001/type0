@@ -1,5 +1,22 @@
+import { memo } from "react";
+
 const Keyboard = (props) => {
-    const top = ["`", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "-", "=", "Backspace"];
+    const top = [
+        "`",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "0",
+        "-",
+        "=",
+        "Backspace",
+    ];
     const qwer = [
         "Tab",
         "q",
@@ -55,6 +72,23 @@ const Keyboard = (props) => {
         "Ctrl2",
         "Fn2",
     ];
+    console.log("keyboard");
+
+    const blink = (key) => {
+        document.querySelector(`.${key}`).style.backgroundColor =
+            "var(--visitedLetter)";
+        const timer = setTimeout(() => {
+            document.querySelector(`.${key}`).style.backgroundColor =
+                "var(--backgroundColor)";
+            clearTimeout(timer);
+        }, 150);
+    };
+
+    document.addEventListener("keypress", (e) => {
+        if (/^[A-Za-z]+$/.test(e.key)) {
+            blink(e.key);
+        }
+    });
     return (
         <div
             className="keyboard"
@@ -67,13 +101,7 @@ const Keyboard = (props) => {
             <div className="first">
                 {top.map((ele) => {
                     return (
-                        <div
-                            className={`${ele} key`}
-                            onClick={(e) => {
-                                console.log(ele);
-                            }}
-                            key={ele}
-                        >
+                        <div className={`${ele} key`} key={ele}>
                             {ele}
                         </div>
                     );
@@ -119,4 +147,4 @@ const Keyboard = (props) => {
     );
 };
 
-export default Keyboard;
+export default memo(Keyboard);
