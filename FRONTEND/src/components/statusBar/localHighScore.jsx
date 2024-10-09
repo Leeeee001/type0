@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserName from "./userName";
+import { API } from "../../utils/const";
 
 function LocalHighScore(props) {
     // const [topTenObj, setTopTenObj] = useState([]);
@@ -20,13 +21,12 @@ function LocalHighScore(props) {
             ? localStorage.getItem("highestAccu")
             : 0
     );
-    const API = "https://type0.onrender.com/top5";
     async function globalHighest(curr) {
         // const response = await fetch(
         //   "https://type0-a8335-default-rtdb.asia-southeast1.firebasedatabase.app/leaderBoard.json"
         // );
         // const result = await response.json();
-        const response = await fetch(API);
+        const response = await fetch(`${API}/top5`);
         let data = await response.json();
         delete data[0]["_id"];
         let result = data[0];

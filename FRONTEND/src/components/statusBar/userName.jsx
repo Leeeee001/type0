@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { API } from "../../utils/const";
 
 function UserName(props) {
     const [textInput, setTextInput] = useState("");
-    const API = "https://type0.onrender.com/top5";
     async function updateGlobalLeader(e) {
         const updatedLeaderBoard = props.previousLeaderboard;
         const minSpeed = Object.keys(updatedLeaderBoard).reduce((acc, curr) => {
@@ -25,7 +25,7 @@ function UserName(props) {
         //     body: JSON.stringify(updatedLeaderBoard),
         //   }
         // );
-        const response = await fetch(API, {
+        const response = await fetch(`${API}/top5`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updatedLeaderBoard),
